@@ -43,6 +43,7 @@
     "http-server": "^14.1.1",
     "reg-keygen-git-hash-plugin": "^0.14.3",
     "reg-notify-github-plugin": "^0.14.4",
+    "reg-publish-s3-plugin": "^0.14.4",
     "storybook": "^8.2.6",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
