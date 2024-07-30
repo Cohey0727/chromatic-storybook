@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "storycap": "storycap http://localhost:6006 --outDir .screenshots",
+    "storycap": "storycap http://localhost:6006",
     "build-storybook": "storybook build",
     "reg-build": "reg-suit run",
     "reg-serve": "http-server .reg -p 7070"
