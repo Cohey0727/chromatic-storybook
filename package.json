@@ -9,11 +9,16 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storycap": "storycap http://localhost:6006",
+    "build-storybook": "storybook build",
+    "reg-build": "reg-suit run",
+    "reg-serve": "http-server .reg -p 7070"
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "reg-suit": "^0.14.4",
+    "storycap": "^5.0.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
@@ -35,6 +40,10 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "eslint-plugin-storybook": "^0.8.0",
+    "http-server": "^14.1.1",
+    "reg-keygen-git-hash-plugin": "^0.14.3",
+    "reg-notify-github-plugin": "^0.14.4",
+    "reg-publish-s3-plugin": "^0.14.4",
     "storybook": "^8.2.6",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
