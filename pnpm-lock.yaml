@@ -14,12 +14,6 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
-      reg-suit:
-        specifier: ^0.14.4
-        version: 0.14.4
-      storycap:
-        specifier: ^5.0.0
-        version: 5.0.0(@storybook/manager-api@8.2.6(storybook@8.2.6(@babel/preset-env@7.25.2(@babel/core@7.25.2))))(@storybook/preview-api@8.2.6(storybook@8.2.6(@babel/preset-env@7.25.2(@babel/core@7.25.2))))
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^1.6.1
@@ -90,9 +84,15 @@ importers:
       reg-publish-s3-plugin:
         specifier: ^0.14.4
         version: 0.14.4
+      reg-suit:
+        specifier: ^0.14.4
+        version: 0.14.4
       storybook:
         specifier: ^8.2.6
         version: 8.2.6(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      storycap:
+        specifier: ^5.0.0
+        version: 5.0.0(@storybook/manager-api@8.2.6(storybook@8.2.6(@babel/preset-env@7.25.2(@babel/core@7.25.2))))(@storybook/preview-api@8.2.6(storybook@8.2.6(@babel/preset-env@7.25.2(@babel/core@7.25.2))))
       typescript:
         specifier: ^5.2.2
         version: 5.5.4
