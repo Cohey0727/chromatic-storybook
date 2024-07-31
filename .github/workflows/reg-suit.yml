@@ -55,7 +55,9 @@ jobs:
         run: pnpm storycap
 
       - name: Run reg-suit
-        run: pnpm reg:build
+        run: |
+          git checkout ${{ github.head_ref || github.ref_name }} || git checkout -b ${{ github.head_ref || github.ref_name }}
+          pnpm reg:build
 
       - name: Upload reg-suit report
         uses: actions/upload-artifact@v3
