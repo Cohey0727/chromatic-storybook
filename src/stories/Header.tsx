@@ -50,7 +50,7 @@ export const Header = ({
         {user ? (
           <>
             <span className="welcome">
-              Hello, <b>{user.name}</b>!
+              Hello World, <b>{user.name}</b>!
             </span>
             <Button size="small" onClick={onLogout} label="Log out" />
           </>
