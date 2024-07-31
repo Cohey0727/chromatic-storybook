@@ -10,6 +10,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -52,6 +53,9 @@ jobs:
         run: pnpm storycap
 
       - name: Run reg-suit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REG_SUIT_REPORT_URL: "https://storybook-snapshots.s3.ap-northeast-1.amazonaws.com/{SHA}/index.html"
         run: |
           git checkout ${{ github.head_ref || github.ref_name }} || git checkout -b ${{ github.head_ref || github.ref_name }}
           pnpm reg:build
