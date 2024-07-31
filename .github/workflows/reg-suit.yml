@@ -1,0 +1,59 @@
+name: Reg Suit
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  visual-regression:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHubActions-RegSuit-S3Access
+          aws-region: ap-northeast-1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Storybook
+        run: pnpm storybook:build
+
+      - name: Serve Storybook
+        run: pnpm storybook:serve &
+
+      - name: Wait for Storybook to start
+        run: |
+          echo "Waiting for Storybook to start..."
+          while ! nc -z localhost 6006; do
+            sleep 1
+          done
+          echo "Storybook is up!"
+
+      - name: Capture Screenshots
+        run: pnpm storycap
+
+      - name: Run reg-suit
+        run: pnpm reg:build
+
+      - name: Upload reg-suit report
+        uses: actions/upload-artifact@v3
+        with:
+          name: reg-suit-report
+          path: .reg

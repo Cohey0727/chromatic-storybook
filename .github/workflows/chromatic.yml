@@ -8,17 +8,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 全履歴をフェッチ（Chromaticに必要）
+          fetch-depth: 0
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # または、プロジェクトで使用しているバージョン
+          node-version: 20
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 7 # または、プロジェクトで使用しているバージョン
+          version: 9
 
       - name: Get pnpm store directory
         id: pnpm-cache
