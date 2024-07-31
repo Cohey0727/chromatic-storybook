@@ -9,8 +9,9 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storycap": "storycap http://localhost:6006",
+    "build-storybook": "storybook build",
     "sb:dev": "storybook dev -p 6006",
-    "sb:build": "storybook build",
+    "sb:build": "pnpm build-storybook",
     "sb:serve": "http-server ./storybook-static -p 6006",
     "reg:build": "reg-suit run",
     "reg:serve": "http-server .reg -p 7070"
