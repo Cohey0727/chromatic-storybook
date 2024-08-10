@@ -38,4 +38,4 @@ jobs:
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
         run: |
-          pnpm dlx chromatic --patch-build ${{ github.event.inputs.head-branch }}...${{ github.event.inputs.base-branch }}
+          pnpm dlx chromatic --force-rebuild main --patch-build ${{ github.event.inputs.head-branch }}...${{ github.event.inputs.base-branch }}
