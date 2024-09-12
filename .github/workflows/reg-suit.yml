@@ -1,9 +1,6 @@
 name: Reg Suit
 
-on:
-  pull_request:
-  push:
-
+on: []
 jobs:
   visual-regression:
     runs-on: ubuntu-latest
