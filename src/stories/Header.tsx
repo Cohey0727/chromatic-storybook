@@ -50,7 +50,7 @@ export const Header = ({
         {user ? (
           <>
             <span className="welcome">
-              main, <b>{user.name}</b>!
+              8dc1ab75f1058f25d18d1a02d5f67e46c698e151, <b>{user.name}</b>!
             </span>
             <Button size="small" onClick={onLogout} label="Log out" />
           </>
