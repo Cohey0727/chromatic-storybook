@@ -41,14 +41,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build Storybook
+        run: pnpm run build-storybook
+
       - name: Serve Storybook
-        run: pnpm run sb:dev &
+        run: pnpm run http-server storybook-static -p 6006 &
 
       - name: Wait for Storybook
         run: |
-          while ! nc -z localhost 6006; do
-            sleep 1
-          done
+          timeout 300 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:6006)" != "200" ]]; do sleep 5; done' || false
 
       - name: Take screenshots (actual)
-        run: pnpm run storycap -o "__screenshots__/actual"
+        run: pnpm run storycap http://localhost:6006 -o "__screenshots__/actual"
