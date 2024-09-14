@@ -4,7 +4,8 @@ name: "Chromatic Build"
 #   push:
 #     branches: [main, feature/0001]
 #   pull_request:
-on: []
+on:
+  workflow_dispatch:
 
 jobs:
   chromatic-deployment:
