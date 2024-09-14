@@ -35,7 +35,7 @@ pnpm run storycap -o "__screenshots__/actual"
 
 ```sh
 git checkout main
-pnpm run sb:dev 
+pnpm run sb:dev
 pnpm run storycap -o "__screenshots__/expected"
 # __screenshots__ディレクトリに画像が生成されます。
 ```
@@ -43,6 +43,7 @@ pnpm run storycap -o "__screenshots__/expected"
 ### RegSuitでスクショを比較
 
 ```sh
-mv __screenshots__/expected .reg/expected
+mkdir -p .reg/expected
+cp -r __screenshots__/expected .reg
 pnpm run reg:build
 ```

@@ -1,15 +1,14 @@
-name: Deploy RegSuit to GitHub Pages
+name: RegSuit GithubPages
 
 on:
+  push:
+    branches: [main]
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: [main]
 
 jobs:
-  build-and-deploy:
+  visual-regression-test:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,25 +26,3 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-
-      - name: Build Storybook
-        run: pnpm sb:build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./storybook-static
-          destination_dir: pr-preview/pr-${{ github.event.number }}
-
-      - name: Comment PR
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.name,
-              body: '📚 Storybook preview for this PR is ready!\n\nPreview: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr-preview/pr-${{ github.event.number }}/'
-            })
