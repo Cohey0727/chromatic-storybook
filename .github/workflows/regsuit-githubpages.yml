@@ -1,4 +1,4 @@
-name: Deploy Storybook to GitHub Pages
+name: Deploy RegSuit to GitHub Pages
 
 on:
   pull_request:
