@@ -21,7 +21,7 @@
 ### Storybookを起動
 
 ```sh
-pnpm run sb:dev 
+pnpm run sb:dev
 ```
 
 ### Storycapでスクリーンショット
