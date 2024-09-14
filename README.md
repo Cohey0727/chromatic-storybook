@@ -15,3 +15,34 @@
 | sb:serve | ビルドされたStorybookの静的ファイルをポート6006で提供する |
 | reg:build | reg-suitを実行し、ビジュアルリグレッションテストを行う |
 | reg:serve | .regディレクトリの内容をポート7070で提供する |
+
+## reg-suitの動かし方
+
+### Storybookを起動
+
+```sh
+pnpm run sb:dev 
+```
+
+### Storycapでスクリーンショット
+
+```sh
+pnpm run storycap -o "__screenshots__/actual"
+# __screenshots__ディレクトリに画像が生成されます。
+```
+
+### ブランチを切り替えてスクリーンショット
+
+```sh
+git checkout main
+pnpm run sb:dev 
+pnpm run storycap -o "__screenshots__/expected"
+# __screenshots__ディレクトリに画像が生成されます。
+```
+
+### RegSuitでスクショを比較
+
+```sh
+mv __screenshots__/expected .reg/expected
+pnpm run reg:build
+```

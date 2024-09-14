@@ -1,24 +1,7 @@
 {
   "core": {
     "workingDir": ".reg",
-    "actualDir": "__screenshots__",
-    "thresholdRate": 0,
-    "ximgdiff": {
-      "invocationType": "client"
-    },
-    "enableAntialias": true,
-    "matchingThreshold": 0.5
-  },
-  "plugins": {
-    "reg-keygen-git-hash-plugin": true,
-    "reg-notify-github-plugin": {
-      "clientId": "$REG_NOTIFY_GITHUB_PLUGIN_CLIENT_ID",
-      "prComment": true,
-      "setCommitStatus": true,
-      "shortDescription": true
-    },
-    "reg-publish-s3-plugin": {
-      "bucketName": "storybook-snapshots"
-    }
+    "actualDir": "__screenshots__/actual",
+    "thresholdRate": 0
   }
 }
