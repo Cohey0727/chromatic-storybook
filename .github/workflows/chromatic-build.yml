@@ -1,6 +1,9 @@
-name: "Chromatic"
+name: "Chromatic Build"
 
-on: pull_request
+on:
+  push:
+    branches: [main, feature/0001]
+  pull_request:
 
 jobs:
   chromatic-deployment:
