@@ -66,6 +66,7 @@ export const Page: React.FC = () => {
           </a>
           .
         </p>
+        <p>feature/0002</p>
         <div className="tip-wrapper">
           <span className="tip">Tip</span> Adjust the width of the canvas with
           the{" "}
