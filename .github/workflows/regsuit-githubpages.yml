@@ -40,3 +40,15 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Serve Storybook
+        run: pnpm run sb:dev &
+
+      - name: Wait for Storybook
+        run: |
+          while ! nc -z localhost 6006; do
+            sleep 1
+          done
+
+      - name: Take screenshots (actual)
+        run: pnpm run storycap -o "__screenshots__/actual"
